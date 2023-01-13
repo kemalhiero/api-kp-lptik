@@ -10,4 +10,5 @@ class Jurusan extends Model
     use HasFactory;
 
     protected $table = 'jurusan';
+    protected $primaryKey = 'kode_jur';
 }

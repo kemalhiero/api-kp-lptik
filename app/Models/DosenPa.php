@@ -10,4 +10,5 @@ class DosenPa extends Model
     use HasFactory;
 
     protected $table = 'dosen_pa';
+    protected $primaryKey = 'id_pa';
 }

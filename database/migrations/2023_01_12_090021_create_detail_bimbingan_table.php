@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('detail_bimbingan', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('id_dosen')->constrained('dosen', 'id_dosen');//fk
             $table->foreignId('kode_jur')->constrained('mahasiswa', 'kode_jur');//fk
             $table->foreignId('kode_fak')->constrained('mahasiswa', 'kode_fak');//fk

@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jadwal', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('id_ruang')->constrained('ruang', 'id_ruang');//fk
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id_mk');//fk
             $table->foreignId('id_dosen')->constrained('dosen', 'id_dosen');//fk

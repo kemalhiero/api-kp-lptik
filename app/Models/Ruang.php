@@ -10,4 +10,5 @@ class Ruang extends Model
     use HasFactory;
 
     protected $table = 'ruang';
+    protected $primaryKey = 'id_ruang';
 }

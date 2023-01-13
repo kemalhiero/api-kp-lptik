@@ -10,4 +10,5 @@ class MataKuliah extends Model
     use HasFactory;
 
     protected $table = 'mata_kuliah';
+    protected $primaryKey = 'id_mk';
 }
