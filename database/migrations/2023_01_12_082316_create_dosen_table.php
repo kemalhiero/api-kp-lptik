@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->id('id_dosen');
-            $table->foreignId('kode_jur');//fk
-            $table->foreignId('kode_fak');//fk
+            $table->foreignId('kode_jur')->constrained('jurusan', 'kode_jur');//fk
+            $table->foreignId('kode_fak')->constrained('fakultas', 'kode_fak');//fk
             $table->string('nip', 100);
             $table->string('nama_dosen', 200);
             $table->string('jenis_kelamin', 20);
@@ -33,6 +33,11 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('dosen', function (Blueprint $table) {
+            $table->dropForeign(['kode_jur']);
+            $table->dropForeign(['kode_fak']);
+        });
+
         Schema::dropIfExists('dosen');
     }
 };
