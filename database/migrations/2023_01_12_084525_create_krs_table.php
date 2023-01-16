@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('krs', function (Blueprint $table) {
             $table->id('id_krs');
             $table->foreignId('id_mhs')->constrained('mahasiswa', 'id_mhs');//fk
-            $table->foreignId('kode_jur')->constrained('mahasiswa', 'kode_jur');//fk
-            $table->foreignId('kode_fak')->constrained('mahasiswa', 'kode_fak');//fk
+            $table->foreignId('id_jur')->constrained('mahasiswa', 'id_jur');//fk
+            $table->foreignId('id_fak')->constrained('mahasiswa', 'id_fak');//fk
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id_mk');//fk
+            $table->foreignId('id_jadwal')->constrained('jadwal', 'id_jadwal');//fk
+            $table->foreignId('id_ruang')->constrained('jadwal', 'id_ruang');//fk
+            $table->foreignId('id_dosen')->constrained('jadwal', 'id_dosen');//fk
             $table->string('semester', 50);
             $table->timestamps();
         });
@@ -33,9 +36,12 @@ return new class extends Migration
     {
         Schema::table('krs', function (Blueprint $table) {
             $table->dropForeign(['id_mhs']);
-            $table->dropForeign(['kode_jur']);
-            $table->dropForeign(['kode_fak']);
+            $table->dropForeign(['id_jur']);
+            $table->dropForeign(['id_fak']);
             $table->dropForeign(['id_mk']);
+            $table->dropForeign(['id_jadwal']);
+            $table->dropForeign(['id_ruang']);
+            $table->dropForeign(['id_dosen']);
         });
 
         Schema::dropIfExists('krs');

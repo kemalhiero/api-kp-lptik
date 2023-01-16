@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id('id_mhs');
-            $table->foreignId('kode_jur')->constrained('jurusan', 'kode_jur');//fk
-            $table->foreignId('kode_fak')->constrained('fakultas', 'kode_fak');//fk
+            $table->foreignId('id_jur')->constrained('jurusan', 'id_jur');//fk
+            $table->foreignId('id_fak')->constrained('fakultas', 'id_fak');//fk
             $table->string('nim', 20);
             $table->string('nama_mahasiswa', 200);
             $table->string('jenis_kelamin', 20);
@@ -36,8 +36,8 @@ return new class extends Migration
     {
 
         Schema::table('mahasiswa', function (Blueprint $table) {
-            $table->dropForeign(['kode_jur']);
-            $table->dropForeign(['kode_fak']);
+            $table->dropForeign(['id_jur']);
+            $table->dropForeign(['id_fak']);
         });
 
         Schema::dropIfExists('mahasiswa');

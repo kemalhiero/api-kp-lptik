@@ -16,8 +16,8 @@ class MahasiswaSeeder extends Seeder
     public function run()
     {
         Mahasiswa::create([
-            'kode_jur' => 1,
-            'kode_fak' => 1,
+            'id_jur' => 1,
+            'id_fak' => 1,
             'nim' => '2011521017',
             'nama_mahasiswa' => 'Iqbal FR',
             'jenis_kelamin' => 'Laki',
@@ -27,8 +27,8 @@ class MahasiswaSeeder extends Seeder
         ]);
         
         Mahasiswa::create([
-            'kode_jur' => 4,
-            'kode_fak' => 3,
+            'id_jur' => 4,
+            'id_fak' => 3,
             'nim' => '2011341188',
             'nama_mahasiswa' => 'Jom tanya',
             'jenis_kelamin' => 'Laki',
@@ -38,8 +38,8 @@ class MahasiswaSeeder extends Seeder
         ]);
         
         Mahasiswa::create([
-            'kode_jur' => 7,
-            'kode_fak' => 2,
+            'id_jur' => 7,
+            'id_fak' => 2,
             'nim' => '2011678889',
             'nama_mahasiswa' => 'ojo mabuk dunyo',
             'jenis_kelamin' => 'Women☕',
@@ -49,8 +49,8 @@ class MahasiswaSeeder extends Seeder
         ]);
         
         Mahasiswa::create([
-            'kode_jur' => 2,
-            'kode_fak' => 1,
+            'id_jur' => 2,
+            'id_fak' => 1,
             'nim' => '2011125563',
             'nama_mahasiswa' => 'uripmu rekoso',
             'jenis_kelamin' => 'Women☕',

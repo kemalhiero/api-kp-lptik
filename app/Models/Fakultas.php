@@ -9,5 +9,6 @@ class Fakultas extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'kode_fak';
+    protected $primaryKey = 'id_fak';
+    public $timestamps = false;
 }
