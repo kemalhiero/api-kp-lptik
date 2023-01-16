@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bimbingan;
 use Illuminate\Http\Request;
 
-class DetailBimbinganController extends Controller
+class BimbinganController extends Controller
 {
     //
 }

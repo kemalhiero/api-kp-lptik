@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('id_mhs')->constrained('mahasiswa', 'id_mhs');//fk
             $table->foreignId('kode_jur')->constrained('mahasiswa', 'kode_jur');//fk
             $table->foreignId('kode_fak')->constrained('mahasiswa', 'kode_fak');//fk
-            $table->foreignId('id_stat')->constrained('mahasiswa', 'id_stat');//fk
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id_mk');//fk
             $table->string('semester', 50);
             $table->timestamps();
@@ -36,7 +35,6 @@ return new class extends Migration
             $table->dropForeign(['id_mhs']);
             $table->dropForeign(['kode_jur']);
             $table->dropForeign(['kode_fak']);
-            $table->dropForeign(['id_stat']);
             $table->dropForeign(['id_mk']);
         });
 

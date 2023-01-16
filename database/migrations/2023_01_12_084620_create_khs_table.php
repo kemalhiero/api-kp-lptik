@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignId('id_mhs')->constrained('krs', 'id_mhs');//fk
             $table->foreignId('kode_jur')->constrained('krs', 'kode_jur');//fk
             $table->foreignId('kode_fak')->constrained('krs', 'kode_fak');//fk
-            $table->foreignId('id_stat')->constrained('krs', 'id_stat');//fk
             $table->foreignId('id_mk')->constrained('krs', 'id_mk');//fk
             $table->string('nilai_angka', 100);
             $table->string('nilai_huruf', 100);
@@ -39,7 +38,6 @@ return new class extends Migration
             $table->dropForeign(['id_mhs']);
             $table->dropForeign(['kode_jur']);
             $table->dropForeign(['kode_fak']);
-            $table->dropForeign(['id_stat']);
             $table->dropForeign(['id_mk']);
         });
 

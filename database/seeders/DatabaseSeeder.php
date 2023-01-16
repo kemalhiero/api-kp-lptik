@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +17,25 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::create([
+            'name' => 'qepo lu',
+            'username' => 'qqq',
+            'email' => 'qqq@email.com',
+            'password' => bcrypt('qqq')
+        ]);
+
+        $this->call([
+            JurusanSeeder::class,
+            FakultasSeeder::class,
+            MataKuliahSeeder::class,         //urutan ngisinya sesuai sama ini
+            RuangSeeder::class,
+            DosenSeeder::class,
+            MahasiswaSeeder::class,
+            BimbinganSeeder::class,
+            JadwalSeeder::class,
+
+            // KrsSeeder::class,
+            // KhsSeeder::class,
+        ]);
     }
 }
