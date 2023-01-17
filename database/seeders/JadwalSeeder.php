@@ -17,7 +17,7 @@ class JadwalSeeder extends Seeder
     {
         Jadwal::create([
             'id_ruang' => 1,
-            'id_mk' => 1,
+            'id_mk' => 2,
             'id_dosen' => 1,
             'id_krs' => 1,
             'waktu' => 'Senin (10:00 - 14:40)',
@@ -25,8 +25,32 @@ class JadwalSeeder extends Seeder
         
         Jadwal::create([
             'id_ruang' => 2,
-            'id_mk' => 1,
+            'id_mk' => 4,
             'id_dosen' => 1,
+            'id_krs' => 1,
+            'waktu' => 'Selasa (13:30 - 15:10)',
+        ]);
+ 
+        Jadwal::create([
+            'id_ruang' => 2,
+            'id_mk' => 1,
+            'id_dosen' => 2,
+            'id_krs' => 1,
+            'waktu' => 'Senin (13:30 - 15:10)',
+        ]);
+
+        Jadwal::create([
+            'id_ruang' => 1,
+            'id_mk' => 6,
+            'id_dosen' => 3,
+            'id_krs' => 1,
+            'waktu' => 'Rabu (13:30 - 15:10)',
+        ]);
+
+        Jadwal::create([
+            'id_ruang' => 4,
+            'id_mk' => 5,
+            'id_dosen' => 4,
             'id_krs' => 1,
             'waktu' => 'Selasa (13:30 - 15:10)',
         ]);

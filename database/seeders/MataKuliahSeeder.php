@@ -44,5 +44,11 @@ class MataKuliahSeeder extends Seeder
             'nama_mk' => 'Inovasi Sistem Informasi',
             'sks' => '3'
         ]);
+
+        MataKuliah::create([
+            'reg_mk' => 'JK',
+            'nama_mk' => 'Jaringan dan Komunikasi Data',
+            'sks' => '3'
+        ]);
     }
 }

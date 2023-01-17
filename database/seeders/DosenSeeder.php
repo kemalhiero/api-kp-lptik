@@ -9,6 +9,7 @@ use App\Models\Dosen;
 class DosenSeeder extends Seeder
 {
     /**
+     * keterangan
      * laki-laki->l, perempuan->p
      * iya->y, tidak->t
      *
@@ -30,7 +31,7 @@ class DosenSeeder extends Seeder
         Dosen::create([
             'id_jur' => 1,
             'id_fak' => 1,
-            'nip' => '199308152022032017 ',
+            'nip' => '199308152022032017',
             'nama_dosen' => 'Rahmatika PS',
             'jenis_kelamin' => 'p',
             'alamat' => 'Padang',
@@ -43,10 +44,21 @@ class DosenSeeder extends Seeder
             'id_fak' => 1,
             'nip' => '198001102008121002',
             'nama_dosen' => 'Fajril Akbar',
-            'jenis_kelamin' => 'p',
+            'jenis_kelamin' => 'l',
             'alamat' => 'Padang',
             'email' => 'ijab@it.unand.ac.id',
             'status_pa' => 'y',
+        ]);
+
+        Dosen::create([
+            'id_jur' => 1,
+            'id_fak' => 1,
+            'nip' => '199108122019032018 ',
+            'nama_dosen' => 'Dwi Welly Sukma Nirad',
+            'jenis_kelamin' => 'p',
+            'alamat' => 'Padang',
+            'email' => 'welly@it.unand.ac.id',
+            'status_pa' => 't',
         ]);
         
         Dosen::create([
