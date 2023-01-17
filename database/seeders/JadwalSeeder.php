@@ -19,8 +19,7 @@ class JadwalSeeder extends Seeder
             'id_ruang' => 1,
             'id_mk' => 1,
             'id_dosen' => 1,
-            'id_jur' => 1,
-            'id_fak' => 1,
+            'id_krs' => 1,
             'waktu' => 'Senin (10:00 - 14:40)',
         ]);
         
@@ -28,8 +27,7 @@ class JadwalSeeder extends Seeder
             'id_ruang' => 2,
             'id_mk' => 1,
             'id_dosen' => 1,
-            'id_jur' => 1,
-            'id_fak' => 1,
+            'id_krs' => 1,
             'waktu' => 'Selasa (13:30 - 15:10)',
         ]);
     }

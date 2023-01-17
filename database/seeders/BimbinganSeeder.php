@@ -17,9 +17,19 @@ class BimbinganSeeder extends Seeder
     {
         Bimbingan::create([
             'id_dosen' => 1,
-            'id_jur' => 1,
-            'id_fak' => 1,
             'id_mhs' => 1,
+        ]);
+        Bimbingan::create([
+            'id_dosen' => 1,
+            'id_mhs' => 2,
+        ]);
+        Bimbingan::create([
+            'id_dosen' => 2,
+            'id_mhs' => 3,
+        ]);
+        Bimbingan::create([
+            'id_dosen' => 2,
+            'id_mhs' => 4,
         ]);
     }
 }

@@ -15,6 +15,21 @@ class KrsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Krs::create([
+            'id_mhs' => 1,
+            'semester' => "4",
+        ]);
+        Krs::create([
+            'id_mhs' => 2,
+            'semester' => "4",
+        ]);
+        Krs::create([
+            'id_mhs' => 3,
+            'semester' => "6",
+        ]);
+        Krs::create([
+            'id_mhs' => 4,
+            'semester' => "6",
+        ]);
     }
 }

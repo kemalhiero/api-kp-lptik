@@ -32,9 +32,9 @@ class DatabaseSeeder extends Seeder
             DosenSeeder::class,
             MahasiswaSeeder::class,
             BimbinganSeeder::class,
+            KrsSeeder::class,
             JadwalSeeder::class,
 
-            // KrsSeeder::class,
             // KhsSeeder::class,
         ]);
     }

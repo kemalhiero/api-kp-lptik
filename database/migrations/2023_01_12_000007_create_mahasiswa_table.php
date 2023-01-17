@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('id_fak')->constrained('fakultas', 'id_fak');//fk
             $table->string('nim', 20);
             $table->string('nama_mahasiswa', 200);
-            $table->string('jenis_kelamin', 20);
+            $table->string('jenis_kelamin', 5);
             $table->string('alamat', 255);
             $table->string('email', 250);
             $table->string('status_mhs', 50);
