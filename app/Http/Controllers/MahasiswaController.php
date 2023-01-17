@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use stdClass;
+
 
 class MahasiswaController extends Controller
 {
@@ -15,6 +18,14 @@ class MahasiswaController extends Controller
     public function index()
     {
         //
+        $mahasiswa = Mahasiswa::get();
+
+        $data = new stdClass;
+        $data->count = $mahasiswa->count();
+        $data->datetime = Carbon::now();
+        $data->profil = $mahasiswa;
+
+        return response()->json($data);
     }
 
     /**

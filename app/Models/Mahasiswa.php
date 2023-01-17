@@ -11,4 +11,31 @@ class Mahasiswa extends Model
 
     protected $table = 'mahasiswa';
     protected $primaryKey = 'id_mhs';
+
+    public function jurusan()
+    {
+        return $this->hasOne(Jurusan::class);
+    }
+
+    public function fakultas()
+    {
+        return $this->hasOne(Jurusan::class);
+    }
+
+    public function dosen()
+    {
+        return $this->belongsToMany(Dosen::class, 'bimbingan', 'id_mhs');
+    }
+
+    public function jadwal()
+    {
+        return $this->belongsToMany(MataKuliah::class, 'krs', 'id_mhs');
+    }
+
+    public function matkul()
+    {
+        return $this->belongsToMany(MataKuliah::class, 'khs', 'id_mhs');
+    }
+
+  
 }

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('jenis_kelamin', 20);
             $table->string('alamat', 255);
             $table->string('email', 200);
+            $table->string('status_pa', 200);
             $table->timestamps();
         });
     }

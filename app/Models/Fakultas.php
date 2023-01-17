@@ -10,4 +10,14 @@ class Fakultas extends Model
     use HasFactory;
 
     protected $primaryKey = 'kode_fak';
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'id_mhs');
+    }
+
+    public function dosen()
+    {
+        return $this->belongsTo(Dosen::class, 'id_dosen');
+    }
 }

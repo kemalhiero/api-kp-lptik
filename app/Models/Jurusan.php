@@ -11,4 +11,14 @@ class Jurusan extends Model
 
     protected $table = 'jurusan';
     protected $primaryKey = 'kode_jur';
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'id_mhs');
+    }
+
+    public function dosen()
+    {
+        return $this->belongsTo(Dosen::class, 'id_dosen');
+    }
 }

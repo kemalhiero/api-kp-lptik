@@ -10,4 +10,14 @@ class Jadwal extends Model
     use HasFactory;
 
     protected $table = 'jadwal';
+
+    public function dosen()
+    {
+        return $this->belongsTo(Krs::class);
+    }
+
+    public function krs()
+    {
+        return $this->hasMany(Krs::class, 'id_krs');
+    }
 }

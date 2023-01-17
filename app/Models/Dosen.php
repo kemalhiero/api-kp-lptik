@@ -11,4 +11,29 @@ class Dosen extends Model
 
     protected $table = 'dosen';
     protected $primaryKey = 'id_dosen';
+
+    public function jurusan()
+    {
+        return $this->hasOne(Jurusan::class);
+    }
+
+    public function fakultas()
+    {
+        return $this->hasOne(Jurusan::class);
+    }
+
+    public function mahasiwa()
+    {
+        return $this->belongsToMany(Mahasiswa::class);
+    }
+
+    public function ruang()
+    {
+        return $this->belongsToMany(Ruang::class, 'jadwal', 'id_dosen');
+    }
+
+    public function matkul()
+    {
+        return $this->belongsToMany(MataKuliah::class, 'jadwal', 'id_dosen');
+    }
 }

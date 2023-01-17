@@ -15,12 +15,8 @@ return new class extends Migration
     {
         Schema::create('khs', function (Blueprint $table) {
             $table->id('id_khs');
-            $table->foreignId('id_krs')->constrained('krs', 'id_krs');//fk
-            $table->foreignId('id_mhs')->constrained('krs', 'id_mhs');//fk
-            $table->foreignId('kode_jur')->constrained('krs', 'kode_jur');//fk
-            $table->foreignId('kode_fak')->constrained('krs', 'kode_fak');//fk
-            $table->foreignId('id_stat')->constrained('krs', 'id_stat');//fk
-            $table->foreignId('id_mk')->constrained('krs', 'id_mk');//fk
+            $table->foreignId('id_mhs')->constrained('mahasiswa', 'id_mhs');//fk
+            $table->foreignId('id_mk')->constrained('mata_kuliah', 'id_mk');//fk
             $table->string('nilai_angka', 100);
             $table->string('nilai_huruf', 100);
             $table->timestamps();
@@ -37,9 +33,6 @@ return new class extends Migration
         Schema::table('khs', function (Blueprint $table) {
             $table->dropForeign(['id_krs']);
             $table->dropForeign(['id_mhs']);
-            $table->dropForeign(['kode_jur']);
-            $table->dropForeign(['kode_fak']);
-            $table->dropForeign(['id_stat']);
             $table->dropForeign(['id_mk']);
         });
 

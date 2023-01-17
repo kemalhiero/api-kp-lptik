@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id('id_mhs');
             $table->foreignId('kode_jur')->constrained('jurusan', 'kode_jur');//fk
             $table->foreignId('kode_fak')->constrained('fakultas', 'kode_fak');//fk
-            $table->foreignId('id_stat')->constrained('stat_mhs', 'id_stat');//fk
             $table->string('nama_mahasiswa', 200);
             $table->string('nim', 20);
             $table->string('jenis_kelamin', 20);
             $table->string('alamat', 255);
             $table->string('email', 250);
+            $table->string('status_mhs', 100);
             $table->timestamps();
         });
     }

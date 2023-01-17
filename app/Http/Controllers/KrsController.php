@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Krs;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use stdClass;
+
 
 class KrsController extends Controller
 {
@@ -15,6 +18,14 @@ class KrsController extends Controller
     public function index()
     {
         //
+        $krs = Krs::with('jadwal')->get();
+
+        $data = new stdClass;
+        $data->count = $krs->count();
+        $data->datetime = Carbon::now();
+
+        return response()->json($krs);
+      
     }
 
     /**
@@ -44,9 +55,10 @@ class KrsController extends Controller
      * @param  \App\Models\Krs  $krs
      * @return \Illuminate\Http\Response
      */
-    public function show(Krs $krs)
+    public function show($semester)
     {
         //
+       
     }
 
     /**

@@ -10,4 +10,9 @@ class Khs extends Model
     use HasFactory;
 
     protected $primaryKey = 'id_khs';
+
+    public function mahasiswa()
+    {
+        return $this->belongsToMany(Mahasiswa::class);
+    }
 }
