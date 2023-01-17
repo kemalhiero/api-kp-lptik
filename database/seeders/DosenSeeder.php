@@ -19,7 +19,7 @@ class DosenSeeder extends Seeder
         Dosen::create([
             'id_jur' => 1,
             'id_fak' => 1,
-            'nip' => '1811521732891',
+            'nip' => '198201182008121002',
             'nama_dosen' => 'Husnil Kamil',
             'jenis_kelamin' => 'l',
             'alamat' => 'Padang',
@@ -30,7 +30,7 @@ class DosenSeeder extends Seeder
         Dosen::create([
             'id_jur' => 1,
             'id_fak' => 1,
-            'nip' => '199461837256',
+            'nip' => '199308152022032017 ',
             'nama_dosen' => 'Rahmatika PS',
             'jenis_kelamin' => 'p',
             'alamat' => 'Padang',
@@ -41,7 +41,7 @@ class DosenSeeder extends Seeder
         Dosen::create([
             'id_jur' => 1,
             'id_fak' => 1,
-            'nip' => '197461837256',
+            'nip' => '198001102008121002',
             'nama_dosen' => 'Fajril Akbar',
             'jenis_kelamin' => 'p',
             'alamat' => 'Padang',

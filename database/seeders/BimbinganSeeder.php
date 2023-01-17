@@ -24,11 +24,11 @@ class BimbinganSeeder extends Seeder
             'id_mhs' => 2,
         ]);
         Bimbingan::create([
-            'id_dosen' => 2,
+            'id_dosen' => 3,
             'id_mhs' => 3,
         ]);
         Bimbingan::create([
-            'id_dosen' => 2,
+            'id_dosen' => 3,
             'id_mhs' => 4,
         ]);
     }

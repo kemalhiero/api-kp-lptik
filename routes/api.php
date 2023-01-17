@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\DosenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +29,6 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::get('/list-krs', [AuthController::class, 'logout']);
+Route::get('/listmahasiswa/{nip_dosen}', [DosenController::class, 'listMahasiswaBimbingan']);
+Route::get('/detailmahasiswa/{nim_mahasiswa}', [DosenController::class, 'detailMahasiswaPA']);
 

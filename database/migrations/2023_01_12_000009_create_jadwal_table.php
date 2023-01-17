@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jadwal', function (Blueprint $table) {
-            $table->id('id_jadwal');
-            $table->foreignId('id_ruang')->constrained('ruang', 'id_ruang');//fk
-            $table->foreignId('id_mk')->constrained('mata_kuliah', 'id_mk');//fk
-            $table->foreignId('id_dosen')->constrained('dosen', 'id_dosen');//fk
-            $table->foreignId('id_krs')->constrained('krs', 'id_krs');//fk
+            $table->id();
+            $table->foreignId('id_ruang')->constrained('ruang', 'id');//fk
+            $table->foreignId('id_mk')->constrained('mata_kuliah', 'id');//fk
+            $table->foreignId('id_dosen')->constrained('dosen', 'id');//fk
+            $table->foreignId('id_krs')->constrained('krs', 'id');//fk
             $table->string('waktu', 100);
             $table->timestamps();
         });
