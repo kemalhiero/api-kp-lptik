@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('semester', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('id_mhs')->constrained('mahasiswa', 'id');//fk
+            $table->string('semester', 50);
+            $table->string('jumlah_sks', 50);
+            $table->string('ips', 50);
         });
     }
 
@@ -26,6 +29,11 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('semester', function (Blueprint $table) {
+            $table->dropForeign(['id_mk']);
+            $table->dropForeign(['id_smt']);
+        });
+
         Schema::dropIfExists('semester');
     }
 };

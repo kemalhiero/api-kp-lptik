@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id('id_jadwal');
-            $table->foreignId('id_krs')->constrained('krs', 'id_krs');//fk
-            $table->foreignId('id_ruang')->constrained('ruang', 'id_ruang');//fk
-            $table->foreignId('id_mk')->constrained('mata_kuliah', 'id_mk');//fk
-            $table->foreignId('id_dosen')->constrained('dosen', 'id_dosen');//fk
+            $table->foreignId('id_krs')->constrained('krs', 'id');//fk
+            $table->foreignId('id_ruang')->constrained('ruang', 'id');//fk
+            $table->foreignId('id_mk')->constrained('mata_kuliah', 'id');//fk
+            $table->foreignId('id_dosen')->constrained('dosen', 'id');//fk
             $table->date('waktu', 100);
             $table->timestamps();
         });

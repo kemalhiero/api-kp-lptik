@@ -10,8 +10,7 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $table = 'mahasiswa';
-<<<<<<< HEAD
-    protected $primaryKey = 'id_mhs';
+    protected $primaryKey = 'id';
 
     public function jurusan()
     {
@@ -53,9 +52,7 @@ class Mahasiswa extends Model
       return $this->id;
     }
 
-    
-=======
->>>>>>> master
+
 }
 
   

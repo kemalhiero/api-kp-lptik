@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('khs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_mhs')->constrained('mahasiswa', 'id');//fk
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id');//fk
             $table->foreignId('id_smt')->constrained('semester', 'id');//fk
             $table->string('nilai_angka', 100);
