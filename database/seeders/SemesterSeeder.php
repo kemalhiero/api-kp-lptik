@@ -17,25 +17,25 @@ class SemesterSeeder extends Seeder
     {
         Semester::insert([
             [
-                'id_mhs' => 13,
+                'id_mhs' => 6,
                 'semester' => 1,
                 'jumlah_sks' => '18',
                 'ips' => '3.4',
             ],
             [
-                'id_mhs' => 13,
+                'id_mhs' => 6,
                 'semester' => 2,
                 'jumlah_sks' => '20',
                 'ips' => '4.0',
             ],
             [
-                'id_mhs' => 13,
+                'id_mhs' => 6,
                 'semester' => 3,
                 'jumlah_sks' => '24',
                 'ips' => '3.6',
             ],
             [
-                'id_mhs' => 13,
+                'id_mhs' => 6,
                 'semester' => 4,
                 'jumlah_sks' => '24',
                 'ips' => '3.5',

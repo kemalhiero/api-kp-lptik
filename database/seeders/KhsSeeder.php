@@ -20,25 +20,25 @@ class KhsSeeder extends Seeder
         Khs::insert([
             [
                 'id_mk' => 1,
-                'id_smt' => 5,
+                'id_smt' => 1,
                 'nilai_angka' => 75,
                 'nilai_huruf' => 'A-'
             ],
             [
-                'id_mk' => 1,
-                'id_smt' => 6,
+                'id_mk' => 3,
+                'id_smt' => 2,
                 'nilai_angka' => 75,
                 'nilai_huruf' => 'A'
             ],
             [
                 'id_mk' => 1,
-                'id_smt' => 7,
+                'id_smt' => 3,
                 'nilai_angka' => 75,
                 'nilai_huruf' => 'A-'
             ],
             [
                 'id_mk' => 1,
-                'id_smt' => 8,
+                'id_smt' => 4,
                 'nilai_angka' => 75,
                 'nilai_huruf' => 'A-'
             ],

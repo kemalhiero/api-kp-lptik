@@ -17,19 +17,19 @@ class BimbinganSeeder extends Seeder
     {
         Bimbingan::create([
             'id_dosen' => 1,
-            'id_mhs' => 1,
+            'id_mhs' => 6,
         ]);
         Bimbingan::create([
             'id_dosen' => 1,
-            'id_mhs' => 2,
+            'id_mhs' => 7,
         ]);
         Bimbingan::create([
             'id_dosen' => 3,
-            'id_mhs' => 3,
+            'id_mhs' => 8,
         ]);
         Bimbingan::create([
             'id_dosen' => 3,
-            'id_mhs' => 4,
+            'id_mhs' => 6,
         ]);
     }
 }

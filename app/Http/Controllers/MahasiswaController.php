@@ -38,7 +38,7 @@ class MahasiswaController extends Controller
 
         $krs= DB::table('krs')
             ->join('mahasiswa', 'krs.id_mhs', '=', 'mahasiswa.id')
-            ->join('jadwal', 'krs.id_krs', '=', 'jadwal.id_krs')
+            ->join('jadwal', 'krs.id', '=', 'jadwal.id_krs')
             ->select('krs.*', 'jadwal.*')
             ->where('mahasiswa.id_user', $id)
         ->get();
@@ -62,7 +62,7 @@ class MahasiswaController extends Controller
         //     return response()->json('Data Tidak ada');
         // }
 
-        $matkul = DB::table('mata_kuliah')->where('id_mk', $id_matkul)->first();
+        $matkul = DB::table('mata_kuliah')->where('id', $id_matkul)->first();
         return response()->json($matkul);
 
     }
