@@ -2,9 +2,15 @@
 
 namespace Database\Seeders;
 
+<<<<<<< HEAD
 use App\Models\Khs;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+=======
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\Khs;
+>>>>>>> master
 
 class KhsSeeder extends Seeder
 {
@@ -15,6 +21,7 @@ class KhsSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
 
         Khs::insert([
             [
@@ -42,5 +49,8 @@ class KhsSeeder extends Seeder
                 'nilai_huruf' => 'A-'
             ],
         ]);
+=======
+        //
+>>>>>>> master
     }
 }

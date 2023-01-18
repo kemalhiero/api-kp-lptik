@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('mata_kuliah', function (Blueprint $table) {
-            $table->id('id_mk');
+            $table->id();
             $table->string('reg_mk', 100);
             $table->string('nama_mk', 150);
-            $table->string('sks', 100);
+            $table->string('sks', 5);
             $table->timestamps();
         });
     }

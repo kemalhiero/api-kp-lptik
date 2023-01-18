@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_bimbingan', function (Blueprint $table) {
+        Schema::create('bimbingan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_dosen')->constrained('dosen', 'id_dosen');//fk
-            $table->date('waktu', 100);
-            $table->foreignId('id_mhs')->constrained('mahasiswa', 'id_mhs');//fk
+            $table->foreignId('id_dosen')->constrained('dosen', 'id');//fk
+            $table->foreignId('id_mhs')->constrained('mahasiswa', 'id');//fk
+            $table->string('waktu', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -29,11 +29,11 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('detail_bimbingan', function (Blueprint $table) {
+        Schema::table('bimbingan', function (Blueprint $table) {
             $table->dropForeign(['id_dosen']);
             $table->dropForeign(['id_mhs']);
         });
 
-        Schema::dropIfExists('detail_bimbingan');
+        Schema::dropIfExists('bimbingan');
     }
 };

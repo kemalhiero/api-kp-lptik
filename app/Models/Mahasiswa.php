@@ -10,6 +10,7 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $table = 'mahasiswa';
+<<<<<<< HEAD
     protected $primaryKey = 'id_mhs';
 
     public function jurusan()
@@ -53,6 +54,8 @@ class Mahasiswa extends Model
     }
 
     
+=======
+>>>>>>> master
 }
 
   

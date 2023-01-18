@@ -14,15 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
-            $table->id('id_mhs');
-            $table->foreignId('kode_jur')->constrained('jurusan', 'kode_jur');//fk
-            $table->foreignId('kode_fak')->constrained('fakultas', 'kode_fak');//fk
+
+            $table->id();
+            $table->foreignId('id_jur')->constrained('jurusan', 'id');//fk
+            $table->foreignId('id_fak')->constrained('fakultas', 'id');//fk
+            $table->foreignId('id_user')->constrained('users', 'id');//fk
+            $table->string('nim', 20)->unique();
             $table->string('nama_mahasiswa', 200);
-            $table->string('nim', 20);
-            $table->string('jenis_kelamin', 20);
+            $table->string('jenis_kelamin', 5);
             $table->string('alamat', 255);
             $table->string('email', 250);
-            $table->string('status_mhs', 100);
+            $table->string('no_hp', 250);
+            $table->string('status_mhs', 50);
             $table->timestamps();
         });
     }
@@ -36,9 +39,8 @@ return new class extends Migration
     {
 
         Schema::table('mahasiswa', function (Blueprint $table) {
-            $table->dropForeign(['kode_jur']);
-            $table->dropForeign(['kode_fak']);
-            $table->dropForeign(['id_stat']);
+            $table->dropForeign(['id_jur']);
+            $table->dropForeign(['id_fak']);
         });
 
         Schema::dropIfExists('mahasiswa');

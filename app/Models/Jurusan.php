@@ -10,7 +10,8 @@ class Jurusan extends Model
     use HasFactory;
 
     protected $table = 'jurusan';
-    protected $primaryKey = 'kode_jur';
+    protected $primaryKey = 'id_jur';
+    public $timestamps = false;
 
     public function mahasiswa()
     {

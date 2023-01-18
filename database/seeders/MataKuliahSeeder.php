@@ -15,6 +15,7 @@ class MataKuliahSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         MataKuliah::insert([
             [
             'reg_mk' => 'BD',
@@ -49,5 +50,42 @@ class MataKuliahSeeder extends Seeder
 
         ]);
 
+=======
+        MataKuliah::create([
+            'reg_mk' => 'BD',
+            'nama_mk' => 'Basis Data',
+            'sks' => '3'
+        ]);
+
+        MataKuliah::create([
+            'reg_mk' => 'PWEB',
+            'nama_mk' => 'Pemrograman Web',
+            'sks' => '3'
+        ]);
+        
+        MataKuliah::create([
+            'reg_mk' => 'PBD',
+            'nama_mk' => 'Perancangan Basis Data',
+            'sks' => '4'
+        ]);
+        
+        MataKuliah::create([
+            'reg_mk' => 'PTB',
+            'nama_mk' => 'Pemrograman Teknologi Bergerak',
+            'sks' => '3'
+        ]);
+        
+        MataKuliah::create([
+            'reg_mk' => 'ISI',
+            'nama_mk' => 'Inovasi Sistem Informasi',
+            'sks' => '3'
+        ]);
+
+        MataKuliah::create([
+            'reg_mk' => 'JK',
+            'nama_mk' => 'Jaringan dan Komunikasi Data',
+            'sks' => '3'
+        ]);
+>>>>>>> master
     }
 }

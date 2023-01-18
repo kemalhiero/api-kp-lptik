@@ -35,8 +35,7 @@ return new class extends Migration
             $table->dropForeign(['id_ruang']);
             $table->dropForeign(['id_mk']);
             $table->dropForeign(['id_dosen']);
-            $table->dropForeign(['kode_jur']);
-            $table->dropForeign(['kode_fak']);
+            $table->dropForeign(['id_krs']);;
         });
 
         Schema::dropIfExists('jadwal');

@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('fakultas', function (Blueprint $table) {
-            $table->id('kode_fak');
+            $table->id();
             $table->string('nama_fak', 100);
-            $table->timestamps();
         });
     }
 
