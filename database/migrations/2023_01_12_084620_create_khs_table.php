@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id_khs');
             $table->foreignId('id_mhs')->constrained('mahasiswa', 'id_mhs');//fk
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id_mk');//fk
+            $table->string('semester', 50)->unique();
             $table->string('nilai_angka', 100);
             $table->string('nilai_huruf', 100);
             $table->timestamps();

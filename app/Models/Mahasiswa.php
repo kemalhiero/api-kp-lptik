@@ -22,6 +22,16 @@ class Mahasiswa extends Model
         return $this->hasOne(Jurusan::class);
     }
 
+    public function krs()
+    {
+        return $this->hasOne(Krs::class, 'id_mhs');
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+
     public function dosen()
     {
         return $this->belongsToMany(Dosen::class, 'bimbingan', 'id_mhs');
@@ -37,5 +47,12 @@ class Mahasiswa extends Model
         return $this->belongsToMany(MataKuliah::class, 'khs', 'id_mhs');
     }
 
-  
+    public function getIdUser()
+    {
+      return $this->id;
+    }
+
+    
 }
+
+  

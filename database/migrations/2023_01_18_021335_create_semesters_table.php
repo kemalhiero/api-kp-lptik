@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('krs', function (Blueprint $table) {
-            $table->id('id_krs');
-            $table->foreignId('id_mhs')->unique()->constrained('mahasiswa', 'id_mhs');//fk
+        Schema::create('semester', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -27,10 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('krs', function (Blueprint $table) {
-            $table->dropForeign(['id_mhs']);
-        });
-
-        Schema::dropIfExists('krs');
+        Schema::dropIfExists('semester');
     }
 };
