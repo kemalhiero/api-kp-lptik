@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,14 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        User::create([
-            'name' => 'qepo lu',
-            'username' => 'qqq',
-            'email' => 'qqq@email.com',
-            'password' => bcrypt('qqq')
-        ]);
-
         $this->call([
+            UserSeeder::class,
             JurusanSeeder::class,
             FakultasSeeder::class,
             MataKuliahSeeder::class,         //urutan ngisinya sesuai sama ini

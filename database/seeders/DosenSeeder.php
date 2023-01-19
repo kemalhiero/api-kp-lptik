@@ -32,7 +32,7 @@ class DosenSeeder extends Seeder
                 'jenis_kelamin' => 'l',
                 'alamat' => 'Padang',
                 'email' => 'husnilkamil@gmail.com',
-                'status_pa' => 'aktif'
+                'status_pa' => 'y'
             ],
              [
                 'id_jur' => 1,

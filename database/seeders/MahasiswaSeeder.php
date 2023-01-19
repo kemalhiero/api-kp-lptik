@@ -27,11 +27,10 @@ class MahasiswaSeeder extends Seeder
                 'email' => 'iqbaall@email.com',
                 'no_hp' => '08867896',
                 'status_mhs' => 'aktif',
-            ],
-            [
+            ], [
                 'id_jur' => 1,
                 'id_fak' => 1,
-                'id_user' =>5,
+                'id_user' =>2,
                 'nim' => '2011522021',
                 'nama_mahasiswa' => 'Rayhan Rizaldi',
                 'jenis_kelamin' => 'l',
@@ -39,8 +38,7 @@ class MahasiswaSeeder extends Seeder
                 'email' => 'rayhannn@email.com',
                 'no_hp' => '34634636',
                 'status_mhs' => 'aktif',
-            ],
-            [
+            ], [
                 'id_jur' => 1,
                 'id_fak' => 1,
                 'id_user' =>3,
@@ -51,8 +49,7 @@ class MahasiswaSeeder extends Seeder
                 'email' => 'suciii@email.com',
                 'no_hp' => '3743754',
                 'status_mhs' => 'aktif',
-            ],
-            [
+            ], [
                 'id_jur' => 1,
                 'id_fak' => 1,
                 'id_user' =>4,
@@ -60,11 +57,10 @@ class MahasiswaSeeder extends Seeder
                 'nama_mahasiswa' => 'Muhammad Zaim Milzam',
                 'jenis_kelamin' => 'p',
                 'alamat' => 'Padang',
-                'email' => 'suciii@email.com',
+                'email' => 'zet_em@email.com',
                 'no_hp' => '07948545',
                 'status_mhs' => 'aktif',
-            ],
-            [
+            ], [
                 'id_jur' => 4,
                 'id_fak' => 3,
                 'id_user' =>2,
@@ -79,8 +75,6 @@ class MahasiswaSeeder extends Seeder
           
         
         ]);
-
-    
 
     }
 }

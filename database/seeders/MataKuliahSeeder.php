@@ -17,9 +17,9 @@ class MataKuliahSeeder extends Seeder
     {
         MataKuliah::insert([
             [
-            'reg_mk' => 'BD',
-            'nama_mk' => 'Basis Data',
-            'sks' => '3'
+                'reg_mk' => 'BD',
+                'nama_mk' => 'Basis Data',
+                'sks' => '3'
             ],
             [
                 'reg_mk' => 'PWEB',

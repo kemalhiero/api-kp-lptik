@@ -15,21 +15,20 @@ class BimbinganSeeder extends Seeder
      */
     public function run()
     {
-        Bimbingan::create([
+        Bimbingan::insert([
+            [
             'id_dosen' => 1,
-            'id_mhs' => 6,
-        ]);
-        Bimbingan::create([
+            'id_mhs' => 1,
+        ], [
             'id_dosen' => 1,
-            'id_mhs' => 7,
-        ]);
-        Bimbingan::create([
+            'id_mhs' => 2,
+        ], [
             'id_dosen' => 3,
-            'id_mhs' => 8,
-        ]);
-        Bimbingan::create([
+            'id_mhs' => 3,
+        ], [
             'id_dosen' => 3,
-            'id_mhs' => 6,
-        ]);
+            'id_mhs' => 4,
+        ]
+    ]);
     }
 }

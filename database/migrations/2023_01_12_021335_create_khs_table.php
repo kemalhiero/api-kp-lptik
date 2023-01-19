@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('khs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id');//fk
-            $table->foreignId('id_smt')->constrained('semester', 'id')->unique();//fk
+            $table->foreignId('id_smt')->constrained('semester', 'id');//fk
             $table->string('nilai_angka', 100);
             $table->string('nilai_huruf', 100);
             $table->timestamps();
@@ -31,8 +31,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('khs', function (Blueprint $table) {
-            $table->dropForeign(['id_mhs']);
             $table->dropForeign(['id_mk']);
+            $table->dropForeign(['id_smt']);
         });
 
         Schema::dropIfExists('khs');

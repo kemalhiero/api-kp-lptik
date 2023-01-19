@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jadwal', function (Blueprint $table) {
-            $table->id('id_jadwal');
+            $table->id();
             $table->foreignId('id_krs')->constrained('krs', 'id');//fk
             $table->foreignId('id_ruang')->constrained('ruang', 'id');//fk
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id');//fk
@@ -32,10 +32,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('jadwal', function (Blueprint $table) {
+            $table->dropForeign(['id_krs']);;
             $table->dropForeign(['id_ruang']);
             $table->dropForeign(['id_mk']);
             $table->dropForeign(['id_dosen']);
-            $table->dropForeign(['id_krs']);;
         });
 
         Schema::dropIfExists('jadwal');

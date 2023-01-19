@@ -18,24 +18,24 @@ class KrsSeeder extends Seeder
     {
         Krs::insert([
             [
-                'id_mhs' => 6,
+                'id_mhs' => 1,
                 'semester' => "4",
             ],
             [
-                'id_mhs' => 7,
-                'semester' => "5"
+                'id_mhs' => 2,
+                'semester' => "6"
             ],
             [
-                'id_mhs' => 8,
+                'id_mhs' => 3,
                 'semester' => "4",
             ],
             [
-                'id_mhs' => 9,
+                'id_mhs' => 4,
                 'semester' => "4",
             ],
             [
-                'id_mhs' => 10,
-                'semester' => "5",
+                'id_mhs' => 5,
+                'semester' => "6",
             ],
         
         ]);

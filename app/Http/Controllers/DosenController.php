@@ -6,12 +6,15 @@ use App\Models\Bimbingan;
 use App\Models\Dosen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use stdClass;
 
 class DosenController extends Controller
 {
-    public function list_mahasiswa_bimbingan($nip_dosen)
+    public function list_mahasiswa_bimbingan()
     {
+
+        $nip_dosen = Auth::user()->username;
         $pa_kah = DB::table('dosen')->select('dosen.status_pa')->where('nip', $nip_dosen)->first();
 
         if ($pa_kah->status_pa=='y') {
@@ -53,8 +56,10 @@ class DosenController extends Controller
         return response()->json($respon);
     }
 
-    public function profil_dosen($nip_dosen)
+    public function profil_dosen()
     {
+        $nip_dosen = Auth::user()->username;
+
         $profil = DB::table('dosen')
         ->select('dosen.id AS id_dosen', 'dosen.nama_dosen', 'dosen.jenis_kelamin', 'dosen.nip', 'dosen.alamat', 'dosen.email', 'dosen.status_pa', 'jurusan.nama_jur', 'fakultas.nama_fak')
         ->join('jurusan', 'id_jur', '=', 'jurusan.id')
@@ -69,8 +74,11 @@ class DosenController extends Controller
         return response()->json($respon);
     }
 
-    public function list_mata_kuliah($nip_dosen)
+    public function list_mata_kuliah()
     {
+
+        $nip_dosen = Auth::user()->username;
+
         $matkul = DB::table('jadwal')
         ->select('jadwal.id AS id_jadwal','mata_kuliah.id AS id_matkul', 'mata_kuliah.nama_mk', 'jadwal.waktu', 'ruang.kode_ruang')
         ->join('dosen', 'id_dosen', '=', 'dosen.id')
