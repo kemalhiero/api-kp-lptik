@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
-
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -15,32 +12,28 @@ class MahasiswaController extends Controller
  
     public function profilMahasiswa()
     {
-
-        $mahasiswa = Mahasiswa::get();
-
-        $id = Auth::user()->getId();
-
-        $matkul = DB::table('mahasiswa')->where('id_user', $id)->first();
+        $username = Auth::user()->getUsername();
+        $matkul = DB::table('mahasiswa')->where('nim', $username)->first();
         
         if($matkul){
             $data = new stdClass;
-            $data->count = $mahasiswa->count();
+            $data->message = "Berhasil mendapatkan data";
             $data->datetime = Carbon::now();
             $data->profil = $matkul;
             return response()->json($data);
         }
-
     }
+    
 
-    public function tampil()
+    public function showKrs()
     {
-        $id = Auth::user()->getId();
+        $username = Auth::user()->getUsername();
 
         $krs= DB::table('krs')
             ->join('mahasiswa', 'krs.id_mhs', '=', 'mahasiswa.id')
             ->join('jadwal', 'krs.id', '=', 'jadwal.id_krs')
             ->select('krs.*', 'jadwal.*')
-            ->where('mahasiswa.id_user', $id)
+            ->where('mahasiswa.nim', $username)
         ->get();
             
         $data = new stdClass;
@@ -54,35 +47,32 @@ class MahasiswaController extends Controller
    
     public function detailMatkul($id_matkul)
     {
-        
-        // $krs = Krs::whereRelation('jadwal', 'id_mk', '=', $id)->get();
-        // if($krs){
-        //     return response()->json($krs);
-        // }else{
-        //     return response()->json('Data Tidak ada');
-        // }
 
-        $matkul = DB::table('mata_kuliah')->where('id', $id_matkul)->first();
-        return response()->json($matkul);
+        $detail = DB::table('jadwal')
+        ->select('mata_kuliah.*', 'dosen.nama_dosen', 'jadwal.id_krs', 'jadwal.waktu', 'ruang.kode_ruang')
+        ->join('krs', 'id_krs', '=', 'krs.id')
+        ->join('dosen', 'id_dosen', '=', 'dosen.id')
+        ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
+        ->join('ruang', 'id_ruang', '=', 'ruang.id')
+        ->where('mata_kuliah.id', $id_matkul)
+        ->first();
+
+        $respon = new stdClass;
+        $respon->message = 'sukses ambil data';
+        $respon->data = $detail;
+        return response()->json($respon);
 
     }
 
     public function showSemester()
     {
-        
-        // $krs = Krs::whereRelation('jadwal', 'id_mk', '=', $id)->get();
-        // if($krs){
-        //     return response()->json($krs);
-        // }else{
-        //     return response()->json('Data Tidak ada');
-        // }
-
-        $id = Auth::user()->getId();
+    
+        $username= Auth::user()->getUsername();
 
         $khs= DB::table('semesters')
             ->join('mahasiswa', 'semesters.id_mhs', '=', 'mahasiswa.id')
             ->select('semesters.*')
-            ->where('mahasiswa.id_user', $id)
+            ->where('mahasiswa.nim', $username)
         ->get();
             
         $data = new stdClass;
@@ -96,22 +86,15 @@ class MahasiswaController extends Controller
 
     public function showKhs($idSemester)
     {
-        
-        // $krs = Krs::whereRelation('jadwal', 'id_mk', '=', $id)->get();
-        // if($krs){
-        //     return response()->json($krs);
-        // }else{
-        //     return response()->json('Data Tidak ada');
-        // }
-
-        $id = Auth::user()->getId();
+    
+        $username = Auth::user()->getUsername();
 
         $khs= DB::table('semesters')
             ->join('mahasiswa', 'semesters.id_mhs', '=', 'mahasiswa.id')
             ->join('khs', 'semesters.id', '=', 'khs.id_smt')
             ->select('semesters.*', 'khs.*')
             ->where([
-                ['mahasiswa.id_user', $id],
+                ['mahasiswa.nim', $username],
                 ['semesters.semester', $idSemester]
              ])
         ->get();
