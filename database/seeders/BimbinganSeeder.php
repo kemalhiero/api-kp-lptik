@@ -23,10 +23,10 @@ class BimbinganSeeder extends Seeder
             'id_dosen' => 1,
             'id_mhs' => 2,
         ], [
-            'id_dosen' => 3,
+            'id_dosen' => 5,
             'id_mhs' => 3,
         ], [
-            'id_dosen' => 3,
+            'id_dosen' => 5,
             'id_mhs' => 4,
         ]
     ]);

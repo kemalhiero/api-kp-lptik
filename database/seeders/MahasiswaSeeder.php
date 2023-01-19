@@ -19,7 +19,6 @@ class MahasiswaSeeder extends Seeder
             [
                 'id_jur' => 1,
                 'id_fak' => 1,
-                'id_user' =>1,
                 'nim' => '2011521017',
                 'nama_mahasiswa' => 'Iqbal FR',
                 'jenis_kelamin' => 'l',             
@@ -30,7 +29,6 @@ class MahasiswaSeeder extends Seeder
             ], [
                 'id_jur' => 1,
                 'id_fak' => 1,
-                'id_user' =>2,
                 'nim' => '2011522021',
                 'nama_mahasiswa' => 'Rayhan Rizaldi',
                 'jenis_kelamin' => 'l',
@@ -41,7 +39,6 @@ class MahasiswaSeeder extends Seeder
             ], [
                 'id_jur' => 1,
                 'id_fak' => 1,
-                'id_user' =>3,
                 'nim' => '2011522011',
                 'nama_mahasiswa' => 'Dwisuci Insani Karimah',
                 'jenis_kelamin' => 'p',
@@ -52,7 +49,6 @@ class MahasiswaSeeder extends Seeder
             ], [
                 'id_jur' => 1,
                 'id_fak' => 1,
-                'id_user' =>4,
                 'nim' => '2011522020',
                 'nama_mahasiswa' => 'Muhammad Zaim Milzam',
                 'jenis_kelamin' => 'p',
@@ -63,7 +59,6 @@ class MahasiswaSeeder extends Seeder
             ], [
                 'id_jur' => 4,
                 'id_fak' => 3,
-                'id_user' =>2,
                 'nim' => '2011341188',
                 'nama_mahasiswa' => 'Zeki chen',
                 'jenis_kelamin' => 'l',

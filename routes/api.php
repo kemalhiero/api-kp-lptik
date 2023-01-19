@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/user', function(Request $request) {
             return auth()->user();
         });
-        
+
         // API route for logout user
         Route::post('/logout', [AuthController::class, 'logout']);
 
@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/profil-dosen', [DosenController::class, 'profil_dosen']);
         Route::get('/list-matkul', [DosenController::class, 'list_mata_kuliah']);
         Route::get('/detail-matkul/{id_matkul}', [DosenController::class, 'detail_mata_kuliah']);
+        Route::get('/list-khs-mhs/{nim_mahasiswa}', [DosenController::class, 'tampil_khs_mahasiswa']);
+        Route::get('/detail-khs-mhs/{nim_mahasiswa}/{semester}', [DosenController::class, 'detail_khs']);
 });
 
     Route::get('/forbidden', [AuthController::class, 'forbidden'])->name('api.forbidden');

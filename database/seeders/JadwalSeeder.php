@@ -48,7 +48,7 @@ class JadwalSeeder extends Seeder
             [
                 'id_krs' => 1,
                 'id_ruang' => 2,
-                'id_mk' => 1,
+                'id_mk' => 6,
                 'id_dosen' => 5,
                 'waktu' => date('2023-01-15 15:16:19')
                 

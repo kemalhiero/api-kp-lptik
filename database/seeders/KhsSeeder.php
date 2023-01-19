@@ -16,32 +16,11 @@ class KhsSeeder extends Seeder
      */
     public function run()
     {
-
         Khs::insert([
-            [
-                'id_mk' => 1,
-                'id_smt' => 1,
-                'nilai_angka' => 75,
-                'nilai_huruf' => 'A-'
-            ],
-            [
-                'id_mk' => 3,
-                'id_smt' => 2,
-                'nilai_angka' => 75,
-                'nilai_huruf' => 'A'
-            ],
-            [
-                'id_mk' => 1,
-                'id_smt' => 3,
-                'nilai_angka' => 75,
-                'nilai_huruf' => 'A-'
-            ],
-            [
-                'id_mk' => 1,
-                'id_smt' => 4,
-                'nilai_angka' => 75,
-                'nilai_huruf' => 'A-'
-            ],
+            [ 'id_mk' => 1, 'id_smt' => 1, 'nilai_angka' => 75, 'nilai_huruf' => 'A-' ],
+            [ 'id_mk' => 3, 'id_smt' => 2, 'nilai_angka' => 75, 'nilai_huruf' => 'A' ],
+            [ 'id_mk' => 1, 'id_smt' => 3, 'nilai_angka' => 75, 'nilai_huruf' => 'A-' ],
+            [ 'id_mk' => 1, 'id_smt' => 4, 'nilai_angka' => 75, 'nilai_huruf' => 'A-' ],
         ]);
 
     }

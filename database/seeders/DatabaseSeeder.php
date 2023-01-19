@@ -27,8 +27,9 @@ class DatabaseSeeder extends Seeder
             BimbinganSeeder::class,
             KrsSeeder::class,
             JadwalSeeder::class,
+            SemesterSeeder::class,
+            KhsSeeder::class,
 
-            // KhsSeeder::class,
         ]);
     }
 }

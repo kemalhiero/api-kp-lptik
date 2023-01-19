@@ -113,4 +113,39 @@ class DosenController extends Controller
         return response()->json($respon);
     }
 
+    public function tampil_khs_mahasiswa($nim_mahasiswa)
+    {
+        $khs= DB::table('semester')
+        ->join('mahasiswa', 'semester.id_mhs', '=', 'mahasiswa.id')
+        ->select('semester.*')
+        ->where('mahasiswa.nim', $nim_mahasiswa)
+        ->get();
+            
+        $data = new stdClass;
+        $data->count = $khs->count();
+        $data->detail = $khs;
+
+        return response()->json($data);
+    }
+
+    public function detail_khs($nim_mahasiswa, $semester)
+    {
+        $khs= DB::table('semester')
+        ->join('mahasiswa', 'semester.id_mhs', '=', 'mahasiswa.id')
+        ->join('khs', 'semester.id', '=', 'khs.id_smt')
+        ->join('mata_kuliah', 'khs.id_mk', '=', 'mata_kuliah.id')
+        ->select('khs.id', 'khs.nilai_angka', 'khs.nilai_huruf', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk', 'mata_kuliah.sks')
+        ->where([
+            ['mahasiswa.nim', $nim_mahasiswa],
+            ['semester.semester', $semester]
+            ])
+        ->get();
+            
+        $data = new stdClass;
+        $data->count = $khs->count();
+        $data->detail_khs = $khs;
+
+        return response()->json($data);
+    }
+
 }
