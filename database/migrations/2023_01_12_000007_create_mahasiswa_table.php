@@ -18,7 +18,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_jur')->constrained('jurusan', 'id');//fk
             $table->foreignId('id_fak')->constrained('fakultas', 'id');//fk
-            $table->foreignId('id_user')->constrained('users', 'id');//fk
             $table->string('nim', 20)->unique();
             $table->string('nama_mahasiswa', 200);
             $table->string('jenis_kelamin', 5);

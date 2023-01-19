@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // API route for logout user
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/mahasiswa', [MahasiswaController::class, 'profilMahasiswa']);
-    Route::get('/krs', [MahasiswaController::class, 'tampil']);
+    Route::get('/krs', [MahasiswaController::class, 'showKrs']);
     Route::get('/khs', [MahasiswaController::class, 'showSemester']);
     Route::get('/khs/{idSemester}', [MahasiswaController::class, 'showKhs']);
     Route::get('/matkul/{id_matkul}', [MahasiswaController::class, 'detailMatkul']);
