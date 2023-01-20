@@ -32,7 +32,7 @@ class DosenSeeder extends Seeder
                 'jenis_kelamin' => 'l',
                 'alamat' => 'Padang',
                 'email' => 'husnilkamil@gmail.com',
-                'status_pa' => 'y'
+                'status_pa' => true
             ],
              [
                 'id_jur' => 1,
@@ -42,7 +42,7 @@ class DosenSeeder extends Seeder
                 'jenis_kelamin' => 'p',
                 'alamat' => 'Padang',
                 'email' => 'rahmatikaps@it.unand.ac.id',
-                'status_pa' => 't',
+                'status_pa' => false,
              ],
              [
                 'id_jur' => 1,
@@ -52,27 +52,27 @@ class DosenSeeder extends Seeder
                 'jenis_kelamin' => 'p',
                 'alamat' => 'Padang',
                 'email' => 'welly@it.unand.ac.id',
-                'status_pa' => 't',
+                'status_pa' => false,
              ],
              [
-                'id_jur' => 4,
-                'id_fak' => 3,
-                'nip' => '181152123542',
-                'nama_dosen' => 'Bambang Gunadarma',
-                'jenis_kelamin' => 'l',
-                'alamat' => 'Pariaman',
-                'email' => 'bambang@ts.unand.ac.id',
-                'status_pa' => 't',
-             ],
-             [
-                'id_jur' => 1,
-                'id_fak' => 1,
-                'nip' => '198001102008121002',
-                'nama_dosen' => 'Fajril Akbar',
-                'jenis_kelamin' => 'l',
-                'alamat' => 'Padang',
-                'email' => 'ijab@it.unand.ac.id',
-                'status_pa' => 'y',
+                 'id_jur' => 1,
+                 'id_fak' => 1,
+                 'nip' => '198001102008121002',
+                 'nama_dosen' => 'Fajril Akbar',
+                 'jenis_kelamin' => 'l',
+                 'alamat' => 'Padang',
+                 'email' => 'ijab@it.unand.ac.id',
+                 'status_pa' => true,
+                ],
+                [
+                 'id_jur' => 4,
+                 'id_fak' => 3,
+                 'nip' => '196812261992031002',
+                 'nama_dosen' => 'Abdul Hakam',
+                 'jenis_kelamin' => 'l',
+                 'alamat' => 'Pariaman',
+                 'email' => 'abdulhakam@ts.unand.ac.id',
+                 'status_pa' => false,
             ]
             
         ]);

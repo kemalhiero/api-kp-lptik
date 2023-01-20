@@ -17,7 +17,7 @@ class DosenController extends Controller
         $nip_dosen = Auth::user()->username;
         $pa_kah = DB::table('dosen')->select('dosen.status_pa')->where('nip', $nip_dosen)->first();
 
-        if ($pa_kah->status_pa=='y') {
+        if ($pa_kah->status_pa==true) {
             $list = Bimbingan::select( 'mahasiswa.id AS id_mahasiswa', 'mahasiswa.nama_mahasiswa', 'mahasiswa.nim', 'mahasiswa.alamat', 'mahasiswa.email', 'mahasiswa.no_hp', 'mahasiswa.status_mhs', 'dosen.nama_dosen')
             ->join('dosen', 'id_dosen', '=', 'dosen.id')
             ->join('mahasiswa', 'id_mhs', '=', 'mahasiswa.id')
