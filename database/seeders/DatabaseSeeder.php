@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             DosenSeeder::class,
             MahasiswaSeeder::class,
             BimbinganSeeder::class,
+            HariSeeder::class,
+            JamSeeder::class,
             KrsSeeder::class,
             JadwalSeeder::class,
             SemesterSeeder::class,

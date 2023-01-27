@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreignId('id_ruang')->constrained('ruang', 'id');//fk
             $table->foreignId('id_mk')->constrained('mata_kuliah', 'id');//fk
             $table->foreignId('id_dosen')->constrained('dosen', 'id');//fk
-            $table->date('waktu', 100);
+            $table->foreignId('id_hari')->constrained('hari', 'id');//fk
+            $table->foreignId('id_jam')->constrained('jam', 'id');//fk
             $table->timestamps();
         });
     }
@@ -36,6 +37,8 @@ return new class extends Migration
             $table->dropForeign(['id_ruang']);
             $table->dropForeign(['id_mk']);
             $table->dropForeign(['id_dosen']);
+            $table->dropForeign(['id_hari']);
+            $table->dropForeign(['id_jam']);
         });
 
         Schema::dropIfExists('jadwal');
