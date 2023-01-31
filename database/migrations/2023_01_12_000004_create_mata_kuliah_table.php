@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('reg_mk', 100);
             $table->string('nama_mk', 150);
-            $table->string('sks', 5);
+            $table->integer('sks', false, true);
             $table->timestamps();
         });
     }

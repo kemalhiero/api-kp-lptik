@@ -80,10 +80,12 @@ class DosenController extends Controller
         $nip_dosen = Auth::user()->username;
 
         $matkul = DB::table('jadwal')
-        ->select('jadwal.id AS id_jadwal','mata_kuliah.id AS id_matkul', 'mata_kuliah.nama_mk', 'jadwal.waktu', 'ruang.kode_ruang')
+        ->select('jadwal.id AS id_jadwal','mata_kuliah.id AS id_matkul', 'mata_kuliah.nama_mk', 'hari.nama_hari', 'jam.jam_kuliah', 'ruang.kode_ruang')
         ->join('dosen', 'id_dosen', '=', 'dosen.id')
         ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
         ->join('ruang', 'id_ruang', '=', 'ruang.id')
+        ->join('hari', 'id_hari', '=', 'hari.id')
+        ->join('jam', 'id_jam', '=', 'jam.id')
         ->where('dosen.nip', $nip_dosen)
         ->get();
 
@@ -99,10 +101,12 @@ class DosenController extends Controller
     public function detail_mata_kuliah($id_matkul)
     {
         $detail = DB::table('jadwal')
-        ->select('mata_kuliah.id AS id_matkul', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk', 'mata_kuliah.sks', 'dosen.nama_dosen', 'jadwal.waktu', 'ruang.kode_ruang')
+        ->select('mata_kuliah.id AS id_matkul', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk', 'mata_kuliah.sks', 'dosen.nama_dosen', 'hari.nama_hari', 'jam.jam_kuliah', 'ruang.kode_ruang')
         ->join('dosen', 'id_dosen', '=', 'dosen.id')
         ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
         ->join('ruang', 'id_ruang', '=', 'ruang.id')
+        ->join('hari', 'id_hari', '=', 'hari.id')
+        ->join('jam', 'id_jam', '=', 'jam.id')
         ->where('mata_kuliah.id', $id_matkul)
         ->first();
         
@@ -112,15 +116,15 @@ class DosenController extends Controller
 
         return response()->json($respon);
     }
-
+    
     public function tampil_khs_mahasiswa($nim_mahasiswa)
     {
         $khs= DB::table('semester')
         ->join('mahasiswa', 'semester.id_mhs', '=', 'mahasiswa.id')
-        ->select('semester.*')
+        ->select('semester.*', 'mahasiswa.nama_mahasiswa', 'mahasiswa.nim')
         ->where('mahasiswa.nim', $nim_mahasiswa)
         ->get();
-            
+
         $data = new stdClass;
         $data->count = $khs->count();
         $data->detail = $khs;
@@ -140,7 +144,7 @@ class DosenController extends Controller
             ['semester.semester', $semester]
             ])
         ->get();
-            
+
         $data = new stdClass;
         $data->count = $khs->count();
         $data->detail_khs = $khs;

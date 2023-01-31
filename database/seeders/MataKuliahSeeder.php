@@ -17,34 +17,34 @@ class MataKuliahSeeder extends Seeder
     {
         MataKuliah::insert([
             [
-                'reg_mk' => 'BD',
+                'reg_mk' => 'JSI111',
                 'nama_mk' => 'Basis Data',
-                'sks' => '3'
+                'sks' => 3
             ],
             [
-                'reg_mk' => 'PWEB',
+                'reg_mk' => 'JSI112',
                 'nama_mk' => 'Pemrograman Web',
-                'sks' => '3'
+                'sks' => 3
             ],
             [
-                'reg_mk' => 'PBD',
+                'reg_mk' => 'JSI113',
                 'nama_mk' => 'Perancangan Basis Data',
-                'sks' => '4'
+                'sks' => 4
             ],
             [
-                'reg_mk' => 'PTB',
+                'reg_mk' => 'JSI114',
                 'nama_mk' => 'Pemrograman Teknologi Bergerak',
-                'sks' => '3'
+                'sks' => 3
             ],
             [
-                'reg_mk' => 'ISI',
+                'reg_mk' => 'JSI115',
                 'nama_mk' => 'Inovasi Sistem Informasi',
-                'sks' => '3'
+                'sks' => 3
             ],
             [
-                'reg_mk' => 'JK',
+                'reg_mk' => 'JSI116',
                 'nama_mk' => 'Jaringan dan Komunikasi Data',
-                'sks' => '3'
+                'sks' => 3
             ]
 
         ]);

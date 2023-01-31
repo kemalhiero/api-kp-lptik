@@ -16,21 +16,11 @@ class HariSeeder extends Seeder
     public function run()
     {
         DB::table('hari')->insert([
-            [
-                'nama_hari' => 'Senin'
-            ],
-            [
-                'nama_hari' => 'Selasa'
-            ],
-            [
-                'nama_hari' => 'Rabu'
-            ],
-            [
-                'nama_hari' => 'Kamis'
-            ],
-            [
-                'nama_hari' => 'Jum\'at'
-            ],
+            [ 'nama_hari' => 'Senin' ],
+            [ 'nama_hari' => 'Selasa' ],
+            [ 'nama_hari' => 'Rabu' ],
+            [ 'nama_hari' => 'Kamis' ],
+            [ 'nama_hari' => 'Jum\'at' ],
         ]);
     }
 }

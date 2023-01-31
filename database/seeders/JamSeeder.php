@@ -15,21 +15,11 @@ class JamSeeder extends Seeder
     public function run()
     {
         DB::table('jam')->insert([
-            [
-                'jam_kuliah' => '07:30-10:00'
-            ],
-            [
-                'jam_kuliah' => '07:30-09:00'
-            ],
-            [
-                'jam_kuliah' => '10:00-13:00'
-            ],
-            [
-                'jam_kuliah' => '13:30-16:00'
-            ],
-            [
-                'jam_kuliah' => '16:00-13=17:40'
-            ],
+            [ 'jam_kuliah' => '07:30-10:00' ],
+            [ 'jam_kuliah' => '07:30-09:00' ],
+            [ 'jam_kuliah' => '10:00-13:00' ],
+            [ 'jam_kuliah' => '13:30-16:00' ],
+            [ 'jam_kuliah' => '16:00-17:40'],
         ]);
     }
 }

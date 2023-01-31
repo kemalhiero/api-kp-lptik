@@ -32,13 +32,24 @@ class MahasiswaController extends Controller
         $krs= DB::table('krs')
             ->join('mahasiswa', 'krs.id_mhs', '=', 'mahasiswa.id')
             ->join('jadwal', 'krs.id', '=', 'jadwal.id_krs')
-            ->select('krs.*', 'jadwal.*')
+            ->join('ruang', 'jadwal.id_ruang', '=', 'ruang.id')
+            ->join('mata_kuliah', 'jadwal.id_mk', '=', 'mata_kuliah.id')
+            ->join('hari', 'jadwal.id_hari', '=', 'hari.id')
+            ->join('jam', 'jadwal.id_jam', '=', 'jam.id')
+            ->select('jadwal.id_mk', 'ruang.kode_ruang', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk', 'mata_kuliah.sks', 'hari.nama_hari','jam.jam_kuliah')
             ->where('mahasiswa.nim', $username)
         ->get();
+
+        $semester = DB::table('krs')
+            ->join('mahasiswa', 'krs.id_mhs', '=', 'mahasiswa.id')
+            ->select('krs.semester')
+            ->where('mahasiswa.nim', $username)
+            ->first();
             
         $data = new stdClass;
         $data->count = $krs->count();
         $data->datetime = Carbon::now();
+        $data->semester = $semester->semester;
         $data->detail = $krs;
 
         return response()->json($data);
@@ -49,11 +60,13 @@ class MahasiswaController extends Controller
     {
 
         $detail = DB::table('jadwal')
-        ->select('mata_kuliah.*', 'dosen.nama_dosen', 'jadwal.id_krs', 'jadwal.waktu', 'ruang.kode_ruang')
+        ->select('mata_kuliah.id', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk', 'mata_kuliah.sks', 'dosen.nama_dosen','hari.nama_hari', 'jam.jam_kuliah', 'ruang.kode_ruang')
         ->join('krs', 'id_krs', '=', 'krs.id')
         ->join('dosen', 'id_dosen', '=', 'dosen.id')
         ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
         ->join('ruang', 'id_ruang', '=', 'ruang.id')
+        ->join('hari', 'id_hari', '=', 'hari.id')
+        ->join('jam', 'id_jam', '=', 'jam.id')
         ->where('mata_kuliah.id', $id_matkul)
         ->first();
 
@@ -64,14 +77,14 @@ class MahasiswaController extends Controller
 
     }
 
-    public function showSemester()
+    public function list_khs()
     {
     
         $username= Auth::user()->getUsername();
 
-        $khs= DB::table('semesters')
-            ->join('mahasiswa', 'semesters.id_mhs', '=', 'mahasiswa.id')
-            ->select('semesters.*')
+        $khs= DB::table('semester')
+            ->join('mahasiswa', 'semester.id_mhs', '=', 'mahasiswa.id')
+            ->select('semester.id', 'semester.semester', 'semester.jumlah_sks', 'semester.ips')
             ->where('mahasiswa.nim', $username)
         ->get();
             
@@ -84,18 +97,19 @@ class MahasiswaController extends Controller
 
     }
 
-    public function showKhs($idSemester)
+    public function detail_khs($idSemester)
     {
     
         $username = Auth::user()->getUsername();
 
-        $khs= DB::table('semesters')
-            ->join('mahasiswa', 'semesters.id_mhs', '=', 'mahasiswa.id')
-            ->join('khs', 'semesters.id', '=', 'khs.id_smt')
-            ->select('semesters.*', 'khs.*')
+        $khs= DB::table('khs')
+            ->join('semester', 'khs.id_smt', '=', 'semester.id')
+            ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
+            ->join('mahasiswa', 'semester.id_mhs', '=', 'mahasiswa.id')
+            ->select('mata_kuliah.nama_mk','mata_kuliah.sks', 'khs.nilai_angka', 'khs.nilai_huruf')
             ->where([
                 ['mahasiswa.nim', $username],
-                ['semesters.semester', $idSemester]
+                ['semester.semester', $idSemester]
              ])
         ->get();
             

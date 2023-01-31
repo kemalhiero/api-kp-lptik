@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\KrsController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
 
@@ -32,8 +31,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         //mahasiswa
         Route::get('/mahasiswa', [MahasiswaController::class, 'profilMahasiswa']);
         Route::get('/krs', [MahasiswaController::class, 'showKrs']);
-        Route::get('/khs', [MahasiswaController::class, 'showSemester']);
-        Route::get('/khs/{idSemester}', [MahasiswaController::class, 'showKhs']);
+        Route::get('/khs', [MahasiswaController::class, 'list_khs']);
+        Route::get('/khs/{idSemester}', [MahasiswaController::class, 'detail_khs']);
         Route::get('/matkul/{id_matkul}', [MahasiswaController::class, 'detailMatkul']);
 
         // dosen
