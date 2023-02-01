@@ -80,12 +80,10 @@ class DosenController extends Controller
         $nip_dosen = Auth::user()->username;
 
         $matkul = DB::table('jadwal')
-        ->select('jadwal.id AS id_jadwal','mata_kuliah.id AS id_matkul', 'mata_kuliah.nama_mk', 'hari.nama_hari', 'jam.jam_kuliah', 'ruang.kode_ruang')
+        ->groupBy('id_mk')
         ->join('dosen', 'id_dosen', '=', 'dosen.id')
         ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
-        ->join('ruang', 'id_ruang', '=', 'ruang.id')
-        ->join('hari', 'id_hari', '=', 'hari.id')
-        ->join('jam', 'id_jam', '=', 'jam.id')
+        ->select('mata_kuliah.id AS id_matkul', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk')
         ->where('dosen.nip', $nip_dosen)
         ->get();
 
@@ -100,16 +98,30 @@ class DosenController extends Controller
 
     public function detail_mata_kuliah($id_matkul)
     {
+        $nip_dosen = Auth::user()->username;
+
         $detail = DB::table('jadwal')
-        ->select('mata_kuliah.id AS id_matkul', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk', 'mata_kuliah.sks', 'dosen.nama_dosen', 'hari.nama_hari', 'jam.jam_kuliah', 'ruang.kode_ruang')
+        ->select('mata_kuliah.id AS id_matkul', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk', 'mata_kuliah.sks', 'dosen.id AS id_dosen')
         ->join('dosen', 'id_dosen', '=', 'dosen.id')
+        ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
+        ->where('mata_kuliah.id', $id_matkul)
+        ->where('dosen.nip', $nip_dosen)
+        ->first();
+
+        $id_dosen = $detail->id_dosen;
+        
+        $jadwal_dosen = DB::table('jadwal')
+        ->select('hari.nama_hari', 'jam.jam_kuliah', 'ruang.kode_ruang')
         ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
         ->join('ruang', 'id_ruang', '=', 'ruang.id')
         ->join('hari', 'id_hari', '=', 'hari.id')
         ->join('jam', 'id_jam', '=', 'jam.id')
         ->where('mata_kuliah.id', $id_matkul)
-        ->first();
-        
+        ->where('jadwal.id_dosen', $id_dosen)
+        ->get();
+
+        $detail->jadwal = $jadwal_dosen;
+
         $respon = new stdClass;
         $respon->message = 'sukses ambil data';
         $respon->data = $detail;
