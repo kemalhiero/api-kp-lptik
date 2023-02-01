@@ -79,8 +79,10 @@ class DosenController extends Controller
 
         $nip_dosen = Auth::user()->username;
 
+        DB::statement("SET SQL_MODE=''");
+
         $matkul = DB::table('jadwal')
-        ->groupBy('id_mk')
+        ->groupBy('jadwal.id_mk')
         ->join('dosen', 'id_dosen', '=', 'dosen.id')
         ->join('mata_kuliah', 'id_mk', '=', 'mata_kuliah.id')
         ->select('mata_kuliah.id AS id_matkul', 'mata_kuliah.reg_mk', 'mata_kuliah.nama_mk')
