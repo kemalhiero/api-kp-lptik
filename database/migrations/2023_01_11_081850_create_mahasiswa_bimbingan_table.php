@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Hari extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,8 @@ class Hari extends Migration
         //
         Schema::create('mahasiswa_bimbingan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('bimbingan_id')->constrained('fakultas', 'id');
-            $table->foreignId('nim_mhs')->constrained('mahasiswa', 'nim');
+            $table->foreignId('bimbingan_id')->constrained('bimbingan', 'id');
+            $table->string('nim_mhs')->constrained('mahasiswa', 'nim');
         });
     }
 
@@ -34,4 +34,4 @@ class Hari extends Migration
         
         Schema::dropIfExists('mahasiswa_bimbingan');
     }
-}
+};

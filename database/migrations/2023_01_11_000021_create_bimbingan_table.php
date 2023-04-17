@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('bimbingan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('nip')->constrained('dosen', 'nip');//fk
+            $table->string('nip')->constrained('dosen', 'nip');//fk
             $table->string('angkatan', 10)->nullable();
             $table->string('keterangan', 100)->nullable();
             $table->timestamps();

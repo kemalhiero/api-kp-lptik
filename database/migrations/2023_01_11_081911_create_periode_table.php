@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Jam extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class Jam extends Migration
     public function up()
     {
         Schema::create('periode', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('tahun', 10);
             $table->string('semester', 10);
         });
@@ -30,4 +30,4 @@ class Jam extends Migration
     {
         Schema::dropIfExists('periode');
     }
-}
+};

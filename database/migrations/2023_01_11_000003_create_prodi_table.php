@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('prodi', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('nama_jur', 100);
             $table->string('jenjang', 10);
-            $table->foreignId('fakultas_id')->constrained('fakultas', 'id');
+            $table->foreignUuid('fakultas_id')->constrained('fakultas', 'uuid');
         });
     }
 

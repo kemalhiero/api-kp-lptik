@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email', 250);
             $table->string('no_hp', 250);
             $table->string('status_mhs', 50);
-            $table->foreignId('prodi_id')->constrained('prodi', 'id');//fk
+            $table->foreignUuid('prodi_id')->constrained('prodi', 'id');//fk
             $table->timestamps();
         });
     }

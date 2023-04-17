@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kelas', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->foreignId('periode_id')->constrained('periode', 'id');//fk
-            $table->foreignId('kode_ruang')->constrained('ruang', 'kode_ruang');//fk
-            $table->foreignId('kode_matkul')->constrained('matkul', 'kode_matkul');//fk
+            $table->uuid('id')->primary();
+            $table->foreignUuid('periode_id')->constrained('periode', 'id');//fk
+            $table->string('kode_ruang')->constrained('ruang', 'kode_ruang');//fk
+            $table->string('kode_matkul')->constrained('matkul', 'kode_matkul');//fk
             $table->string('hari', 10);
             $table->time('jam_mulai');
             $table->time('jam_selesai');
