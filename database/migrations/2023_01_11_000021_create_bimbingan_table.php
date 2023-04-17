@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('bimbingan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_dosen')->constrained('dosen', 'id');//fk
-            $table->foreignId('id_mhs')->constrained('mahasiswa', 'id');//fk
-            $table->string('waktu', 100)->nullable();
+            $table->foreignId('nip')->constrained('dosen', 'nip');//fk
+            $table->string('angkatan', 10)->nullable();
+            $table->string('keterangan', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -30,8 +30,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('bimbingan', function (Blueprint $table) {
-            $table->dropForeign(['id_dosen']);
-            $table->dropForeign(['id_mhs']);
+            $table->dropForeign(['nip']);
         });
 
         Schema::dropIfExists('bimbingan');

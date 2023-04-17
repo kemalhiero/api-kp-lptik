@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class Hari extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        //
+        Schema::create('mahasiswa_bimbingan', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('bimbingan_id')->constrained('fakultas', 'id');
+            $table->foreignId('nim_mhs')->constrained('mahasiswa', 'nim');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('mahasiswa_bimbingan', function (Blueprint $table) {
+            $table->dropForeign(['bimbingan_id', 'nim_mhs']);
+        });
+        
+        Schema::dropIfExists('mahasiswa_bimbingan');
+    }
+}

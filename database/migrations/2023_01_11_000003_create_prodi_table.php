@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('krs', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('id_mhs')->constrained('mahasiswa', 'id');//fk
-            $table->string('semester', 50);
-            $table->timestamps();
+        Schema::create('prodi', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->string('nama_jur', 100);
+            $table->string('jenjang', 10);
+            $table->foreignId('fakultas_id')->constrained('fakultas', 'id');
         });
     }
 
@@ -28,10 +28,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('krs', function (Blueprint $table) {
-            $table->dropForeign(['id_mhs']);
+        Schema::table('prodi', function (Blueprint $table) {
+            $table->dropForeign(['fakultas_id']);
         });
 
-        Schema::dropIfExists('krs');
+        Schema::dropIfExists('prodi');
     }
 };

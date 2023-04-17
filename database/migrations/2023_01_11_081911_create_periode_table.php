@@ -13,9 +13,10 @@ class Jam extends Migration
      */
     public function up()
     {
-        Schema::create('jam', function (Blueprint $table) {
-            $table->id();
-            $table->string('jam_kuliah', 50);
+        Schema::create('periode', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->string('tahun', 10);
+            $table->string('semester', 10);
         });
     }
     
@@ -27,7 +28,6 @@ class Jam extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('jam');
+        Schema::dropIfExists('periode');
     }
 }

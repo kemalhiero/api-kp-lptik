@@ -71,8 +71,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
-    {
+    public function logout() {
         auth('sanctum')->user()->tokens()->delete();
         return [
             'message' => 'Successfully logged out and the token was deleted'

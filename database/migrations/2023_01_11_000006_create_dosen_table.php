@@ -14,14 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('dosen', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('id_jur')->constrained('jurusan', 'id');//fk
-            $table->foreignId('id_fak')->constrained('fakultas', 'id');//fk
-            $table->string('nip', 100);
-            $table->string('nama_dosen', 200);
-            $table->string('jenis_kelamin', 5);
+            $table->string('nip', 100)->primary()->unique();
+            $table->string('nama', 200);
+            $table->string('jenis_kelamin', 10);
             $table->string('alamat', 255);
             $table->string('email', 200);
+            $table->string('no_hp', 200);
             $table->boolean('status_pa');
             $table->timestamps();
         });
@@ -34,11 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('dosen', function (Blueprint $table) {
-            $table->dropForeign(['id_jur']);
-            $table->dropForeign(['id_fak']);
-        });
-
         Schema::dropIfExists('dosen');
     }
 };

@@ -11,14 +11,14 @@ use stdClass;
 
 class DosenController extends Controller
 {
-    public function list_mahasiswa_bimbingan()
-    {
+    public function list_mahasiswa_bimbingan() {
 
         $nip_dosen = Auth::user()->username;
         $pa_kah = DB::table('dosen')->select('dosen.status_pa')->where('nip', $nip_dosen)->first();
 
         if ($pa_kah->status_pa==true) {
-            $list = Bimbingan::select( 'mahasiswa.id AS id_mahasiswa', 'mahasiswa.nama_mahasiswa', 'mahasiswa.nim', 'mahasiswa.alamat', 'mahasiswa.email', 'mahasiswa.no_hp', 'mahasiswa.status_mhs', 'dosen.nama_dosen')
+            $list = DB::table('bimbingan')
+            ->select( 'mahasiswa.id AS id_mahasiswa', 'mahasiswa.nama_mahasiswa', 'mahasiswa.nim', 'mahasiswa.alamat', 'mahasiswa.email', 'mahasiswa.no_hp', 'mahasiswa.status_mhs', 'dosen.nama_dosen')
             ->join('dosen', 'id_dosen', '=', 'dosen.id')
             ->join('mahasiswa', 'id_mhs', '=', 'mahasiswa.id')
             ->where('dosen.nip', $nip_dosen)
@@ -40,8 +40,7 @@ class DosenController extends Controller
         return response()->json($respon);
     }
 
-    public function detail_mahasiswa_pa($nim_mahasiswa)
-    {
+    public function detail_mahasiswa_pa($nim_mahasiswa) {
         $detail = DB::table('mahasiswa')
         ->select('mahasiswa.id AS id_mahasiswa', 'mahasiswa.nama_mahasiswa', 'mahasiswa.nim', 'mahasiswa.alamat', 'mahasiswa.email', 'mahasiswa.no_hp', 'mahasiswa.status_mhs', 'jurusan.nama_jur', 'fakultas.nama_fak')
         ->join('jurusan', 'id_jur', '=', 'jurusan.id')
@@ -74,8 +73,7 @@ class DosenController extends Controller
         return response()->json($respon);
     }
 
-    public function list_mata_kuliah()
-    {
+    public function list_mata_kuliah() {
 
         $nip_dosen = Auth::user()->username;
 
@@ -98,8 +96,7 @@ class DosenController extends Controller
 
     }
 
-    public function detail_mata_kuliah($id_matkul)
-    {
+    public function detail_mata_kuliah($id_matkul) {
         $nip_dosen = Auth::user()->username;
 
         $detail = DB::table('jadwal')
@@ -131,8 +128,7 @@ class DosenController extends Controller
         return response()->json($respon);
     }
     
-    public function tampil_khs_mahasiswa($nim_mahasiswa)
-    {
+    public function tampil_khs_mahasiswa($nim_mahasiswa) {
         $khs= DB::table('semester')
         ->join('mahasiswa', 'semester.id_mhs', '=', 'mahasiswa.id')
         ->select('semester.*', 'mahasiswa.nama_mahasiswa', 'mahasiswa.nim')
@@ -146,8 +142,7 @@ class DosenController extends Controller
         return response()->json($data);
     }
 
-    public function detail_khs($nim_mahasiswa, $semester)
-    {
+    public function detail_khs($nim_mahasiswa, $semester) {
         $khs= DB::table('semester')
         ->join('mahasiswa', 'semester.id_mhs', '=', 'mahasiswa.id')
         ->join('khs', 'semester.id', '=', 'khs.id_smt')
