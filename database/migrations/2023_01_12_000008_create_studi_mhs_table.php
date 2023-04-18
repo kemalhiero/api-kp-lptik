@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('nim')->constrained('mahasiswa', 'nim');//fk
             $table->foreignUuid('kelas_id')->constrained('kelas');//fk
-            $table->string('nilai', 10);
+            $table->string('nilai', 10)->nullable();
             $table->string('semester_mhs', 50);
-            $table->enum('status', ['setuju', 'tdk_setuju']);
+            $table->enum('status', ['setuju', 'tdk_setuju'])->nullable();
             $table->timestamps();
         });
     }

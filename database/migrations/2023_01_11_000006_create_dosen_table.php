@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('dosen', function (Blueprint $table) {
-            $table->string('nip', 100)->primary();
+            $table->string('nip', 20)->primary();
             $table->string('nama', 200);
-            $table->string('jenis_kelamin', 10);
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('alamat', 255);
-            $table->string('email', 200);
-            $table->string('no_hp', 200);
+            $table->string('email', 100);
+            $table->string('no_hp', 15);
             $table->boolean('status_pa');
             $table->timestamps();
         });

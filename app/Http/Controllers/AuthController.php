@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -15,9 +16,7 @@ class AuthController extends Controller
     public function register(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|max:255|unique:users',
             'role' => 'required|string|min:1',
             'password' => 'required|string|min:3',
             "confirm_password" => "required|same:password"
@@ -31,10 +30,8 @@ class AuthController extends Controller
             ]);
         }
 
-        $user = User::create([
-            'name' => $request->name,
+        $user = User::insert([
             'username' => $request->username,
-            'email' => $request->email,
             'role' => $request->role,
             'password' => Hash::make($request->password),
         ]);
@@ -59,7 +56,7 @@ class AuthController extends Controller
                 'message' => 'Unauthorized'
             ], 401);
         }
-        $user = User::where('username', $request['username'])->firstOrFail();
+        $user = User::where('username', '=', $request['username'])->first();
         $token = $user-> createToken('auth_token')->plainTextToken;
         return response()->json([
             'status' => 'Login success',

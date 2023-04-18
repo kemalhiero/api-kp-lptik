@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('matkul', function (Blueprint $table) {
-            $table->string('kode_matkul', 15);
+            $table->string('kode_matkul', 15)->primary();
             $table->string('nama_matkul', 150);
-            $table->string('jenis', 10);
+            $table->unsignedTinyInteger('sks_matkul');
+            $table->enum('jenis', ['kuliah', 'kp', 'ta']);
             $table->timestamps();
         });
     }

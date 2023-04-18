@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->string('nim', 20)->primary()->unique();
             $table->string('nama_mahasiswa', 200);
-            $table->string('jenis_kelamin', 5);
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('alamat', 255);
-            $table->string('email', 250);
-            $table->string('no_hp', 250);
-            $table->string('status_mhs', 50);
+            $table->string('email', 100);
+            $table->string('no_hp', 15);
+            $table->enum('status_mhs', ['aktif', 'nonaktif']);
             $table->foreignUuid('prodi_id')->constrained('prodi', 'id');//fk
             $table->timestamps();
         });
